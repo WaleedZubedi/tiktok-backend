@@ -12,7 +12,6 @@ app.use(express.json());
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
-
 app.post('/api/generate-hooks', async (req, res) => {
     try {
       const { script } = req.body;
