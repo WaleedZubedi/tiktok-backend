@@ -20,48 +20,31 @@ app.post('/api/generate-hooks', async (req, res) => {
         model: 'gpt-4o',
         messages: [{
           role: 'system',
-          content: 'You are a JSON-only API. You must respond ONLY with valid JSON arrays. Never include explanations, markdown formatting, or any text outside the JSON structure.'
+          content: 'You return ONLY valid JSON. When asked for an array, return just the array with no wrapper object.'
         }, {
           role: 'user',
-          content: `Generate 5 different attention-grabbing hooks (opening text exchanges) for this TikTok texting video script.
+          content: `Generate 5 different attention-grabbing hooks for this TikTok script:
   
-  The hooks should be:
-  - Shocking or surprising
-  - Designed to capture viewer attention immediately
-  - Usually 2-4 text messages
-  - Different from each other in approach
-  
-  Here's the original script:
   ${script}
   
-  Respond with ONLY a JSON array in this exact format, nothing else:
-  ["Hook 1 text here", "Hook 2 text here", "Hook 3 text here", "Hook 4 text here", "Hook 5 text here"]`
+  Return EXACTLY in this format (pure JSON array, no markdown, no explanations):
+  ["hook 1", "hook 2", "hook 3", "hook 4", "hook 5"]`
         }],
-        temperature: 0.8,
-        response_format: { type: "json_object" }
+        temperature: 0.8
       });
   
       let text = completion.choices[0].message.content.trim();
-      
-      // Remove markdown code blocks if present
       text = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
       
-      // If OpenAI wrapped it in an object, extract the array
-      let parsed = JSON.parse(text);
-      let hooks;
-      
-      if (Array.isArray(parsed)) {
-        hooks = parsed;
-      } else if (parsed.hooks && Array.isArray(parsed.hooks)) {
-        hooks = parsed.hooks;
-      } else {
-        // Try to find an array in the response
-        hooks = Object.values(parsed).find(val => Array.isArray(val)) || [];
+      const hooks = JSON.parse(text);
+  
+      if (!Array.isArray(hooks) || hooks.length === 0) {
+        throw new Error('Invalid response format');
       }
   
       res.json({ hooks });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Hook generation error:', error);
       res.status(500).json({ error: 'Failed to generate hooks', details: error.message });
     }
   });
