@@ -28,36 +28,46 @@ app.post('/api/generate-hooks', async (req, res) => {
 
 ${script}
 
-Your job: Find or CREATE 5 different BRUTALLY SHOCKING opening exchanges (5-6 texts each) that could start this SAME story. These need MAXIMUM WTF and shock factor.
+Your job: Create 5 different BRUTAL opening exchanges (5-6 texts each) that START this story with maximum shock - but DON'T spoil the plot or reveal what happens later.
 
-CRITICAL REQUIREMENTS:
-1. Use the SAME characters and plot from this script
-2. Each exchange is 5-6 texts (mix of me: and them:)
-3. Take the MOST SHOCKING, BRUTAL, WTF moments from this story
-4. Make viewers go "WHAT THE ACTUAL FUCK?!"
-5. Build up the shock - don't reveal everything in first text
-6. Let the horror/shock escalate through the exchange
+CRITICAL RULES:
+1. Use the OPENING/SETUP of this story - the moment that kicks everything off
+2. Create the TENSION and DREAD but don't reveal the climax/resolution
+3. Each exchange is 5-6 texts (mix of me: and them:)
+4. Make viewers go "OH FUCK, where is this going?!"
+5. Build anticipation - make them NEED to know what happens
+6. Use the SAME characters from the script
+7. Focus on the BEGINNING conflict, the initial shock, the setup
 
-HOW TO MAXIMIZE SHOCK:
-- Start with something that makes you pause
-- Second text adds confusion/disbelief
-- Third text reveals something worse
-- Fourth text twists the knife
-- Fifth/sixth text makes it UNBEARABLE
-- Use explicit language, raw emotions, devastating details
-- Make it feel REAL and UNCOMFORTABLE
+WHAT TO EXTRACT:
+- The moment something goes wrong
+- The initial accusation/confession/reveal
+- The setup for the drama
+- The "point of no return" moment
+- The threat, the ultimatum, the breaking point
 
-EXAMPLE FORMAT:
-If script is about discovering partner's affair:
+WHAT NOT TO REVEAL:
+- How it ends
+- The final outcome
+- Major plot twists that come later
+- The resolution or consequences
+- Deaths, endings, or final revelations
 
-"them: we need to talk about last night\\nme: what about it\\nthem: your brother told me everything\\nme: what the fuck did he tell you\\nthem: that you two have been sleeping together\\nme: and you believed him\\nthem: he showed me the videos"
+EXAMPLE:
+If story is: Girl breaks up with boy, boy threatens suicide, boy actually does it
 
-"me: i know what you've been doing\\nthem: what are you talking about\\nme: i installed cameras in the house\\nthem: you're insane\\nme: no but watching you fuck my dad in our bed sure was\\nthem: i can explain"
+GOOD HOOKS (setup only):
+"them: babe are you strong enough to watch me go\\nme: what are you talking about\\nthem: i can't do this anymore\\nme: please don't leave me\\nthem: i have to\\nme: i'll end myself if you leave"
 
-Make it MENTALLY SCARRING. People should feel uncomfortable but can't look away.
+"me: you're really doing this\\nthem: yes i am\\nme: after everything we've been through\\nthem: i don't love you anymore\\nme: you'll regret this\\nthem: no i won't"
 
-Return EXACTLY 5 exchanges (5-6 texts each) in this JSON format (use \\n for line breaks):
-["text1\\ntext2\\ntext3\\ntext4\\ntext5", "text1\\ntext2\\ntext3\\ntext4\\ntext5\\ntext6", ...]`
+BAD HOOKS (spoils the ending):
+"them: he's dead\\nme: what\\nthem: he actually did it\\nme: oh my god" ❌ SPOILS IT
+
+Generate 5 brutal opening exchanges that hook viewers but DON'T spoil the story.
+
+Return EXACTLY 5 exchanges in JSON format (use \\n for line breaks):
+["text1\\ntext2\\ntext3\\ntext4\\ntext5", ...]`
       }],
       temperature: 0.9
     });
