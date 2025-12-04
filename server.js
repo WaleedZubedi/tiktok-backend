@@ -28,48 +28,50 @@ app.post('/api/generate-hooks', async (req, res) => {
 
 ${script}
 
-Your job: Create 5 different BRUTAL opening exchanges (5-6 texts each) that START this story with maximum shock - but DON'T spoil the plot or reveal what happens later.
+Create 5 CASUALLY BRUTAL opening exchanges (5-6 texts) that start this story. Make them feel like a REAL conversation where BOTH people are saying shocking things.
 
 CRITICAL RULES:
-1. Use the OPENING/SETUP of this story - the moment that kicks everything off
-2. Create the TENSION and DREAD but don't reveal the climax/resolution
-3. Each exchange is 5-6 texts (mix of me: and them:)
-4. Make viewers go "OH FUCK, where is this going?!"
-5. Build anticipation - make them NEED to know what happens
-6. Use the SAME characters from the script
-7. Focus on the BEGINNING conflict, the initial shock, the setup
+1. This is the OPENING/SETUP - don't spoil the ending
+2. Make it a NATURAL back-and-forth - not just one person freaking out
+3. BOTH people should say brutal/shocking things
+4. Keep it conversational and casual, which makes it MORE disturbing
+5. Could start with a question, statement, or accusation
+6. Use the characters from the script
 
-WHAT TO EXTRACT:
-- The moment something goes wrong
-- The initial accusation/confession/reveal
-- The setup for the drama
-- The "point of no return" moment
-- The threat, the ultimatum, the breaking point
+WHAT MAKES IT GOOD:
+✅ Back-and-forth dialogue (not one-sided)
+✅ Casually brutal (matter-of-fact tone makes it worse)
+✅ Both people contribute to the tension
+✅ Mix of questions, statements, accusations
+✅ Natural conversation flow
+✅ Cold, direct, unflinching language
 
-WHAT NOT TO REVEAL:
-- How it ends
-- The final outcome
-- Major plot twists that come later
-- The resolution or consequences
-- Deaths, endings, or final revelations
+WHAT TO AVOID:
+❌ One person saying something shocking, then 5 texts of "what" "huh" "what do you mean"
+❌ Over-dramatic reactions
+❌ Spoiling the ending
+❌ One-sided conversations
 
-EXAMPLE:
-If story is: Girl breaks up with boy, boy threatens suicide, boy actually does it
+EXAMPLES OF GOOD HOOKS:
 
-GOOD HOOKS (setup only):
-"them: babe are you strong enough to watch me go\\nme: what are you talking about\\nthem: i can't do this anymore\\nme: please don't leave me\\nthem: i have to\\nme: i'll end myself if you leave"
+If story is about cheating/betrayal:
+"me: so when were you planning to tell me\\nthem: tell you what\\nme: that you've been fucking my best friend\\nthem: i wasn't planning to\\nme: cool so you were just gonna keep lying\\nthem: it's not like you didn't see it coming"
 
-"me: you're really doing this\\nthem: yes i am\\nme: after everything we've been through\\nthem: i don't love you anymore\\nme: you'll regret this\\nthem: no i won't"
+"them: do you remember what you said at my birthday\\nme: yeah i said happy birthday\\nthem: no you said you'd never leave\\nme: things change\\nthem: so you're really choosing her over me\\nme: i already did weeks ago"
 
-BAD HOOKS (spoils the ending):
-"them: he's dead\\nme: what\\nthem: he actually did it\\nme: oh my god" ❌ SPOILS IT
+If story is about family drama:
+"me: mom knows\\nthem: knows what\\nme: about dad and your mom\\nthem: what the fuck did you tell her\\nme: i didn't have to she found the messages\\nthem: you're lying"
 
-Generate 5 brutal opening exchanges that hook viewers but DON'T spoil the story.
+"them: why would you invite him\\nme: because he's my dad\\nthem: he's also the reason mom tried to kill herself\\nme: that was 10 years ago\\nthem: and you're really that fucking stupid\\nme: maybe i am"
+
+See? Both people are saying brutal shit, it flows naturally, and it's casually devastating.
+
+Generate 5 hooks like this from the script above.
 
 Return EXACTLY 5 exchanges in JSON format (use \\n for line breaks):
-["text1\\ntext2\\ntext3\\ntext4\\ntext5", ...]`
+["text1\\ntext2\\ntext3\\ntext4\\ntext5\\ntext6", ...]`
       }],
-      temperature: 0.9
+      temperature: 0.92
     });
 
     let text = completion.choices[0].message.content.trim();
