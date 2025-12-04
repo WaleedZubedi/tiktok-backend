@@ -28,22 +28,40 @@ app.post('/api/generate-hooks', async (req, res) => {
 
 ${script}
 
-Generate 5 SHOCKING, OUT-OF-POCKET opening text messages that will make viewers STOP SCROLLING. These must be:
-- Actual text messages in "me:" or "them:" format
-- Brutal, uneasy, and WTF-worthy
-- Story-related but attention-grabbing
-- The kind of text that makes you go "WAIT, WHAT?!"
+Generate 5 BRUTALLY SHOCKING opening text exchanges (3 texts each) that will make viewers STOP SCROLLING. These must be:
 
-Examples of GOOD hooks:
-"them: i've been sleeping with your dad for 3 months"
-"me: mom i know you're not really my mom"
-"them: your sister just confessed everything to me"
-"me: i found the DNA test results in your drawer"
+REQUIREMENTS:
+- EXACTLY 3 text messages per hook (a short exchange)
+- Mix of "me:" and "them:" messages
+- Mentally sickening, brutal, disturbing content
+- Each hook should naturally lead into the main story
+- The exchange should feel like it's PART of the conversation, not separate
+- Make it feel like the conversation is already intense when we join
 
-Return EXACTLY 5 hooks in this JSON format (pure array, no markdown):
-["them: shocking text here", "me: shocking text here", "them: shocking text here", "me: shocking text here", "them: shocking text here"]`
+CRITICAL: These should be EXTREMELY brutal - topics like:
+- Infidelity/betrayal with shocking details
+- Dark family secrets being exposed
+- Life-altering confessions
+- Devastating revelations
+- Manipulation/gaslighting being called out
+- Abuse revelations
+- Intense emotional damage
+
+Examples of GOOD 3-text exchanges:
+
+Example 1:
+"them: i slept with your brother last night\\nme: you're fucking joking right\\nthem: he said you'd never satisfy me anyway"
+
+Example 2:
+"me: i know what you did to sarah\\nthem: you have no proof\\nme: i have the photos and i'm going to the police"
+
+Example 3:
+"them: dad's not coming to your wedding\\nme: what why\\nthem: because i told him you're not actually his daughter"
+
+Return EXACTLY 5 three-text exchanges in this JSON format (use \\n for line breaks):
+["text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3"]`
       }],
-      temperature: 0.9
+      temperature: 0.95
     });
 
     let text = completion.choices[0].message.content.trim();
@@ -70,24 +88,38 @@ app.post('/api/transform-script', async (req, res) => {
       model: 'gpt-4o',
       messages: [{
         role: 'user',
-        content: `You are transforming a TikTok texting video script. You will receive an original script and a HOOK (an opening text message).
+        content: `You are transforming a TikTok texting video script. You will receive an original script and a HOOK (a 3-text exchange that's brutally shocking).
 
 Your task:
-1. Place the hook text at the VERY TOP of the new script as the opening message
-2. Continue the story naturally from that hook
-3. Keep the core plot and drama the same
-4. Flip genders (dad→mom, boyfriend→girlfriend, brother→sister, etc.)
-5. Change small details (names, locations, specific details) to make it feel fresh and unique
-6. Maintain the conversation format with "me:" and "them:"
-7. Keep the dramatic, intense tone throughout
+1. Keep the "> conversation with X" header at the very top (if it exists)
+2. Place the 3-text hook exchange IMMEDIATELY AFTER the header
+3. Make the REST of the conversation flow NATURALLY from this brutal opening
+4. The hook exchange should feel like it's PART of the conversation, not separate
+5. The next texts after the hook should logically continue from this intense moment
+6. Keep the core plot and drama the same
+7. Flip genders (dad→mom, boyfriend→girlfriend, brother→sister, etc.)
+8. Change small details (names, locations, specific details) to make it feel fresh
+9. Maintain the dramatic, intense tone throughout
+
+CRITICAL: The conversation should flow smoothly. If the hook ends with someone accusing or revealing something shocking, the next text should be a reaction or continuation, NOT a completely different topic.
 
 Original script:
 ${script}
 
-Hook to start with (place this EXACTLY at the top):
+Hook exchange to place after the header (this is the opening exchange):
 ${hook}
 
-Return the complete transformed script starting with the hook. Use the same format as the original (with > conversation with X headers if present, and me:/them: format). Make sure the story flows naturally from the hook opening.
+STRUCTURE YOUR OUTPUT LIKE THIS:
+> conversation with [person]
+[3-text hook exchange goes here]
+[continue conversation naturally from the shock]
+[rest of transformed story]
+
+Make sure:
+- Hook is placed RIGHT AFTER the header
+- Conversation flows naturally from the hook
+- No abrupt topic changes after the hook
+- The intensity continues
 
 Return ONLY the transformed script, no explanations or notes.`
       }],
