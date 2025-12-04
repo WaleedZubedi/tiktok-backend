@@ -28,38 +28,38 @@ app.post('/api/generate-hooks', async (req, res) => {
 
 ${script}
 
-Your job: Find or CREATE 5 different BRUTAL 3-text exchanges that could be the OPENING of this SAME story. These exchanges should:
+Your job: Find or CREATE 5 different BRUTALLY SHOCKING opening exchanges (5-6 texts each) that could start this SAME story. These need MAXIMUM WTF and shock factor.
 
 CRITICAL REQUIREMENTS:
 1. Use the SAME characters and plot from this script
-2. Each exchange is 3 texts (me: and them: format)
-3. Take the MOST SHOCKING, BRUTAL moments from this story
-4. Make them the OPENING exchange (the hook that grabs attention)
-5. These should be moments that make people go "WHAT THE FUCK?!"
+2. Each exchange is 5-6 texts (mix of me: and them:)
+3. Take the MOST SHOCKING, BRUTAL, WTF moments from this story
+4. Make viewers go "WHAT THE ACTUAL FUCK?!"
+5. Build up the shock - don't reveal everything in first text
+6. Let the horror/shock escalate through the exchange
 
-HOW TO DO THIS:
-- Look at the most dramatic/shocking reveals in the script
-- Take those moments and make them the OPENING
-- If needed, rephrase them to be even MORE brutal and direct
-- Make it feel like we're joining the conversation at the most intense moment
+HOW TO MAXIMIZE SHOCK:
+- Start with something that makes you pause
+- Second text adds confusion/disbelief
+- Third text reveals something worse
+- Fourth text twists the knife
+- Fifth/sixth text makes it UNBEARABLE
+- Use explicit language, raw emotions, devastating details
+- Make it feel REAL and UNCOMFORTABLE
 
-EXAMPLE:
-If the script is about someone discovering their partner cheated with their sibling:
+EXAMPLE FORMAT:
+If script is about discovering partner's affair:
 
-Hook 1: "them: i slept with your brother\\nme: what the fuck did you just say\\nthem: and i'm not sorry about it"
+"them: we need to talk about last night\\nme: what about it\\nthem: your brother told me everything\\nme: what the fuck did he tell you\\nthem: that you two have been sleeping together\\nme: and you believed him\\nthem: he showed me the videos"
 
-Hook 2: "me: i saw you leaving his apartment\\nthem: so what if you did\\nme: you're fucking my brother aren't you"
+"me: i know what you've been doing\\nthem: what are you talking about\\nme: i installed cameras in the house\\nthem: you're insane\\nme: no but watching you fuck my dad in our bed sure was\\nthem: i can explain"
 
-Hook 3: "them: your brother satisfies me way more than you ever did\\nme: i can't believe this\\nthem: believe it, we've been together for months"
+Make it MENTALLY SCARRING. People should feel uncomfortable but can't look away.
 
-These are all FROM THE SAME STORY but positioned as the opening hook.
-
-Now analyze the script above and generate 5 different brutal 3-text exchanges that could open THIS story.
-
-Return EXACTLY 5 exchanges in this JSON format (use \\n for line breaks):
-["text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3", "text1\\ntext2\\ntext3"]`
+Return EXACTLY 5 exchanges (5-6 texts each) in this JSON format (use \\n for line breaks):
+["text1\\ntext2\\ntext3\\ntext4\\ntext5", "text1\\ntext2\\ntext3\\ntext4\\ntext5\\ntext6", ...]`
       }],
-      temperature: 0.85
+      temperature: 0.9
     });
 
     let text = completion.choices[0].message.content.trim();
@@ -90,13 +90,13 @@ app.post('/api/transform-script', async (req, res) => {
 
 CONTEXT:
 - Original script: ${script}
-- Selected hook (3-text exchange from this story): ${hook}
+- Selected hook (5-6 text exchange from this story): ${hook}
 
 YOUR TASK:
 Transform this script by:
 
 1. Keep the "> conversation with X" header at the top
-2. Place the 3-text hook exchange RIGHT AFTER the header
+2. Place the 5-6 text hook exchange RIGHT AFTER the header
 3. Continue the story NATURALLY from this opening
 4. This hook is FROM this story - it's the most brutal moment repositioned as the opening
 5. The rest of the conversation should flow logically from this intense start
@@ -106,11 +106,11 @@ Transform this script by:
    - Vary the wording slightly while keeping the brutal impact
    - Keep the core plot the same
 
-CRITICAL: The hook and the rest of the script should feel like ONE CONTINUOUS CONVERSATION. No awkward transitions. The story starts with this brutal exchange and continues from there.
+CRITICAL: The hook and the rest of the script should feel like ONE CONTINUOUS CONVERSATION. No awkward transitions. The story starts with this brutal exchange and continues from there seamlessly.
 
 Example structure:
 > conversation with [person]
-[brutal 3-text hook from the story]
+[brutal 5-6 text hook from the story]
 [immediate reaction/continuation]
 [story develops naturally]
 [same plot, same drama, slightly different details]
